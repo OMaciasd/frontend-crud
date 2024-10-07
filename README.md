@@ -1,6 +1,6 @@
 # 📋 CRUD Project with Frontend and Backend
 
-This project implements a basic CRUD (Create, Read, Update, Delete) form for managing items. The Frontend is built using HTML, CSS, and JavaScript. The components are containerized in Docker and orchestrated with Docker Compose to facilitate deployment.
+This project implements a basic CRUD (Create, Read, Update, Delete) form for managing items. The Frontend is built using HTML, CSS, and JavaScript, while the Backend is developed in Python using Flask. Both components are containerized in Docker and orchestrated with Docker Compose to facilitate deployment.
 
 ## 🗂️ Table of Contents
 
@@ -36,16 +36,26 @@ The data can be stored in either a JSON file or a database.
 
 - **Security**: For this test, advanced security mechanisms such as authentication or thorough data validation have not been included.
 
-- **Limits**: The storage is managed with SQLite, which is suitable for testing purposes but not recommended for production environments.
-
 ### 📂 Project Structure
 
 ```plaintext
 .
-├── docs/statics/
-│   ├── index.html
-│   ├── styles.css
-│   └── script.js
+├── .github
+│   ├── dependabot.yml
+│   └── workflows
+│       ├── cd-pipeline.yml
+│       └── ci-pipeline.yml
+├── src/
+│   ├── app.py
+│   ├── data.json
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   └── data.json
+│   ├── templates
+│   │   └── index.html
+│   └── static
+│       ├── styles.css
+│       └── script.js
 ├── docker-compose.yml
 └── README.md
 
@@ -53,9 +63,11 @@ The data can be stored in either a JSON file or a database.
 
 ## ✅ Requirements
 
-- 🐳 [Docker](https://www.docker.com/get-started)
-- [Docker Compose](https://docs.docker.com/compose/)
-- Git
+- 🐍 Python 3.12.
+- 🐳 [Docker](https://www.docker.com/get-started).
+- [Docker Compose](https://docs.docker.com/compose/).
+- Git.
+- [GitHub Actions](https://docs.github.com/en/actions).
 
 ## 🔧 Installation and Setup
 
@@ -63,8 +75,19 @@ The data can be stored in either a JSON file or a database.
 
     ```bash
     git clone https://github.com/omaciasd/frontend-crud.git
+    git clone https://github.com/omaciasd/backend-crud.git
 
     ```
+
+2. Navigate to each project folder and build the Docker images:
+
+    ```bash
+    cd ../backend-crud
+    docker build -t backend .
+
+    ```
+
+3. Configure the required environment variables for the backend in a `.env` file.
 
 ## 🚀 Running the Project
 
@@ -80,6 +103,7 @@ To start the complete application using Docker Compose:
 2. ## 🌐 Accessing the Application
 
 - The **frontend** will be available by NGINX as inverse proxy [http://localhost:80](http://localhost:80).
+- The **backend** can be accessed at [http://localhost:50010/api](http://localhost:50010/api).
 
 ## ⚙️ CI/CD and Deployment on Render
 
@@ -99,11 +123,22 @@ The project is configured to be deployed on **Render**, which provides a managed
 
 - **Frontend** is deployed as a web service accessible at [https://frontend.render.com](https://frontend.render.com).
 
+- **Backend** is deployed as a RESTful API at [https://backend.render.com](https://backend.render.com).
+
 ### How to run the pipeline locally
 
 You can test the CI pipeline locally by running:
 
 ```bash
+cd backend
+
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+
+python3 app.py
+pytest
+
 docker-compose up --build
 
 ```
@@ -111,27 +146,21 @@ docker-compose up --build
 ## 🛠️ Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript.
+- **Backend**: Flask, Python.
+- **Database**: PostgreSQL, JSON.
 - **DevOps**: Docker, Docker Compose.
 - **CI/CD**: GitHub Actions, Render.
 - **🚧 TDD**: Postman, CURL.
 
 ## 🏗️ Architecture
 
-The system consists of two services:
-
-1. **📊 Frontend**: A simple user interface for CRUD operations that interacts with the backend.
-
-![Architecture Diagram](./docs/assets/images/diagram.png)
+For detailed information on the system's architecture, including design decisions and component interactions, refer to the [Architecture Guide](./docs/guides/ARCHITECTURE.md).
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
+To contribute to this project, please check out our [Contribution Guide](./docs/guides/CONTRIBUTING.md) for instructions on setting up your development environment and the process for submitting contributions.
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/new-feature`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature/new-feature`).
-5. Open a Pull Request.
+Describe how to contribute to the project’s documentation
 
 ## 📜 License
 
