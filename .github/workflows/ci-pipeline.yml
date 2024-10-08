@@ -45,7 +45,7 @@ jobs:
       - name: Run Stylelint
         run: |
           cd src
-          stylelint "statics/**/*.css"
+          npx stylelint "statics/**/*.css"
 
       - name: Run Unit Tests
         run: |
