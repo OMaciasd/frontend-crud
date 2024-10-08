@@ -1,6 +1,6 @@
 # 📋 CRUD Project with Frontend
 
-This project implements a basic CRUD (Create, Read, Update, Delete) form for managing items. The Frontend is built using HTML, CSS, and JavaScript. The components are containerized in Docker and orchestrated with Docker Compose to facilitate deployment.
+This project implements a basic CRUD (Create, Read, Update, Delete) form for managing items. The Frontend is built using HTML, CSS, and JavaScript. The components are containerized in Docker and orchestrated with Docker Compose to facilitate deployment with NGINX as a Proxy Server.
 
 ## 🗂️ Table of Contents
 
