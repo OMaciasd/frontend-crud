@@ -28,6 +28,7 @@ jobs:
         run: |
           cd src
           npm install
+          npm install --save-dev jest 
 
       - name: Install Stylelint and Configs
         run: |
