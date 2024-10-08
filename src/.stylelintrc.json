@@ -9,6 +9,7 @@
     "alpha-value-notation": "percentage",
     "color-hex-length": "short",
     "selector-id-pattern": "^[a-z0-9\\-]+$",
-    "media-feature-range-notation": "prefix"
+    "media-feature-range-notation": "prefix",
+    "indentation": 2
   }
 }
