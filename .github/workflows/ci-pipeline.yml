@@ -19,11 +19,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          
       - name: Install Dependencies
-        run: cd src/ && npm install
+        run: |
+          cd src
+          npm install
           
       - name: Run tests
         run: |
+          cd src
+          ls -R
           npm run lint
           npm run htmlhint
           npm run lint:css
