@@ -19,26 +19,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r src/requirements.txt
-
+          npm install
+          
       - name: Run tests
         run: |
-          export PYTHONPATH=$PYTHONPATH:/home/runner/work/backend-crud/backend-crud/src
-          pytest src/tests/ci/
+          npm run lint
+          npm run htmlhint
+          npm run lint:css
 
-      - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-        
-      - name: Build Docker image
-        run: cd src/ && docker build -t "${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }}" .
-
-      - name: Push Docker image
-        run: docker push "${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }}"
+      - name: Run Unit Tests
+        run: |
+          npm test
