@@ -1,13 +1,19 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss"
+  ],
   "rules": {
-    "block-no-empty": true,
-    "color-no-invalid-hex": true,
-    "declaration-colon-space-after": "always",
-    "declaration-colon-space-before": "never",
-    "number-leading-zero": "always",
-    "number-no-trailing-zeros": true,
+    "declaration-colon-space-after": null,
+    "declaration-colon-space-before": null,
+    "number-leading-zero": null,
+    "number-no-trailing-zeros": null,
     "string-quotes": "single",
-    "unit-no-unknown": true
+    "custom-property-empty-line-before": "never",
+    "color-function-notation": "modern",
+    "alpha-value-notation": "percentage",
+    "color-hex-length": "short",
+    "selector-id-pattern": "^[a-z0-9\\-]+$",
+    "media-feature-range-notation": "modern"
   }
 }
