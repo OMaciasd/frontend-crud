@@ -45,8 +45,7 @@ jobs:
       - name: Run Stylelint
         run: |
           cd src
-          ls -l statics/
-          npx stylelint "statics/styles.css" || echo "No CSS files found or an error occurred."
+          npx stylelint "static/styles.css" || echo "No CSS files found or an error occurred."
 
       - name: Run Unit Tests
         run: |
