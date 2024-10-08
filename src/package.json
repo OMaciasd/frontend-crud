@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "setupFiles": ["test/jest.setup.js"]
+  }
+}
