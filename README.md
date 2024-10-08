@@ -1,10 +1,10 @@
-# 📋 CRUD Project with Frontend and Backend
+# 📋 CRUD Project with Frontend
 
-This project implements a basic CRUD (Create, Read, Update, Delete) form for managing items. The Frontend is built using HTML, CSS, and JavaScript, while the Backend is developed in Python using Flask. Both components are containerized in Docker and orchestrated with Docker Compose to facilitate deployment.
+This project implements a basic CRUD (Create, Read, Update, Delete) form for managing items. The Frontend is built using HTML, CSS, and JavaScript. The components are containerized in Docker and orchestrated with Docker Compose to facilitate deployment.
 
 ## 🗂️ Table of Contents
 
-- [📋 CRUD Project with Frontend and Backend](#-crud-project-with-frontend-and-backend)
+- [📋 CRUD Project with Frontend](#-crud-project-with-frontend)
   - [🗂️ Table of Contents](#️-table-of-contents)
   - [📖 Project Description](#-project-description)
     - [🛑 Considerations](#-considerations)
@@ -46,11 +46,6 @@ The data can be stored in either a JSON file or a database.
 │       ├── cd-pipeline.yml
 │       └── ci-pipeline.yml
 ├── src/
-│   ├── app.py
-│   ├── data.json
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── data.json
 │   ├── templates
 │   │   └── index.html
 │   └── static
@@ -63,7 +58,7 @@ The data can be stored in either a JSON file or a database.
 
 ## ✅ Requirements
 
-- 🐍 Python 3.12.
+- [node](https://nodejs.org/en).
 - 🐳 [Docker](https://www.docker.com/get-started).
 - [Docker Compose](https://docs.docker.com/compose/).
 - Git.
@@ -123,8 +118,6 @@ The project is configured to be deployed on **Render**, which provides a managed
 
 - **Frontend** is deployed as a web service accessible at [https://frontend.render.com](https://frontend.render.com).
 
-- **Backend** is deployed as a RESTful API at [https://backend.render.com](https://backend.render.com).
-
 ### How to run the pipeline locally
 
 You can test the CI pipeline locally by running:
@@ -146,8 +139,6 @@ docker-compose up --build
 ## 🛠️ Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript.
-- **Backend**: Flask, Python.
-- **Database**: PostgreSQL, JSON.
 - **DevOps**: Docker, Docker Compose.
 - **CI/CD**: GitHub Actions, Render.
 - **🚧 TDD**: Postman, CURL.
