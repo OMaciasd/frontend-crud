@@ -47,4 +47,5 @@ jobs:
 
       - name: Run Unit Tests
         run: |
+          cd src
           npm test
