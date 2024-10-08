@@ -4,11 +4,11 @@
     "stylelint-config-standard-scss"
   ],
   "rules": {
-    "string-quotes": "single",
+    "string-quotes": ["single", { "avoidEscape": true }],
     "custom-property-empty-line-before": "never",
-    "color-function-notation": "legacy",
     "alpha-value-notation": "percentage",
     "color-hex-length": "short",
-    "selector-id-pattern": "^[a-z0-9\\-]+$"
+    "selector-id-pattern": "^[a-z0-9\\-]+$",
+    "media-feature-range-notation": "prefix"
   }
 }
