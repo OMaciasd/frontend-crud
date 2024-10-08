@@ -9,8 +9,9 @@
     "stylelint": "^16.9.0"
   },
   "scripts": {
-  "lint": "eslint .",
-  "htmlhint": "htmlhint ./src/**/*.html",
-  "lint:css": "stylelint ./src/**/*.css"
-}
+    "lint": "eslint .",
+    "htmlhint": "htmlhint ./src/**/*.html",
+    "lint:css": "stylelint ./src/**/*.css",
+    "test": "echo \"No tests configured\" && exit 0"
+  }
 }
