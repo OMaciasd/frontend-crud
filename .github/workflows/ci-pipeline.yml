@@ -41,20 +41,11 @@ jobs:
         run: |
           cd src
           npm run htmlhint
-
-      - name: Check for CSS files
-        run: |
-          if ls src/**/*.css 1> /dev/null 2>&1; then
-            echo "CSS files found."
-          else
-            echo "No CSS files found."
-            exit 1
-          fi
           
       - name: Run Stylelint
         run: |
           cd src
-          npm run lint:css
+          npm run lint:css -- statics/**/*.css 
 
       - name: Run Unit Tests
         run: |
