@@ -16,6 +16,6 @@
     "lint": "eslint .",
     "htmlhint": "htmlhint ./src/**/*.html",
     "lint:css": "stylelint ./src/**/*.css",
-    "test": "jest"
+    "test": "jest --coverage"
   }
 }
