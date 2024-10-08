@@ -29,8 +29,9 @@ jobs:
           cd src
           npm install
 
-      - name: Install Stylelint Config
-        run: npm install --save-dev stylelint-config-standard
+      - name: Install Stylelint and Configs
+        run: |
+          npm install --save-dev stylelint stylelint-config-standard stylelint-config-standard-scss stylelint-scss
         
       - name: Run lint
         run: |
