@@ -28,8 +28,8 @@ jobs:
         run: |
           cd src
           npm install
-          npm install --save-dev stylelint@^14.14.0 stylelint-config-standard stylelint-config-standard-scss stylelint-scss
-        
+          npm install --save-dev jest stylelint stylelint-config-standard stylelint-config-standard-scss stylelint-scss --legacy-peer-deps
+
       - name: Run lint
         run: |
           cd src
