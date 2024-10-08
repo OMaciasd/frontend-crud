@@ -33,13 +33,19 @@ jobs:
         run: npm install --save-dev stylelint-config-standard
         
       - name: Run lint
-        run: npm run lint
+        run: |
+          cd src
+          npm run lint
 
       - name: Run HTMLHint
-        run: npm run htmlhint
+        run: |
+          cd src
+          npm run htmlhint
 
       - name: Run Stylelint
-        run: npm run lint:css
+        run: |
+          cd src
+          npm run lint:css
 
       - name: Run Unit Tests
         run: |
