@@ -4,16 +4,11 @@
     "stylelint-config-standard-scss"
   ],
   "rules": {
-    "declaration-colon-space-after": "always",
-    "declaration-colon-space-before": "never",
-    "number-leading-zero": "always",
-    "number-no-trailing-zeros": true,
     "string-quotes": "single",
     "custom-property-empty-line-before": "never",
     "color-function-notation": "legacy",
     "alpha-value-notation": "percentage",
     "color-hex-length": "short",
-    "selector-id-pattern": "^[a-z0-9\\-]+$",
-    "media-feature-range-notation": "prefix"
+    "selector-id-pattern": "^[a-z0-9\\-]+$"
   }
 }
