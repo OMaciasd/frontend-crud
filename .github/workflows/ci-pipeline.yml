@@ -28,8 +28,7 @@ jobs:
         run: |
           cd src
           npm install
-          npm install --save-dev jest stylelint stylelint-config-standard stylelint-config-standard-scss stylelint-scss
-
+          npm install --save-dev jest stylelint stylelint-config-standard stylelint-config-standard-scss stylelint-scss --force
         
       - name: Run lint
         run: |
