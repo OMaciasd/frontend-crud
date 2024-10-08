@@ -98,7 +98,6 @@ To start the complete application using Docker Compose:
 2. ## 🌐 Accessing the Application
 
 - The **frontend** will be available by NGINX as inverse proxy [http://localhost:80](http://localhost:80).
-- The **backend** can be accessed at [http://localhost:50010/api](http://localhost:50010/api).
 
 ## ⚙️ CI/CD and Deployment on Render
 
@@ -116,7 +115,7 @@ Every time a *push* is made to the `main` branch, the following pipeline is trig
 
 The project is configured to be deployed on **Render**, which provides a managed server infrastructure for both applications (frontend and backend).
 
-- **Frontend** is deployed as a web service accessible at [https://frontend.render.com](https://frontend.render.com).
+- **Frontend** is deployed as a web service accessible at [https://frontend-crud.render.com](https://frontend-crud-onyv.onrender.com).
 
 ### How to run the pipeline locally
 
