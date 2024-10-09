@@ -8,7 +8,7 @@ window.onload = fetchItems;
 async function fetchItems() {
     try {
         const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error('Error fetching items');
+        if (!response.ok) throw new Error(`Error fetching items: ${response.statusText}`);
         items = await response.json();
         renderItems();
     } catch (error) {
@@ -26,6 +26,7 @@ function renderItems() {
         nameCell.textContent = item.name;
 
         const actionsCell = document.createElement('td');
+
         const editButton = document.createElement('button');
         editButton.innerHTML = '<i class="fas fa-edit"></i> Edit';
         editButton.onclick = () => editItem(item.id, item.name);
@@ -36,7 +37,6 @@ function renderItems() {
 
         actionsCell.appendChild(editButton);
         actionsCell.appendChild(deleteButton);
-
         row.appendChild(nameCell);
         row.appendChild(actionsCell);
 
@@ -44,11 +44,10 @@ function renderItems() {
     });
 }
 
-// Guardar nuevo item o actualizar uno existente
 document.getElementById('crudForm').onsubmit = async function (event) {
     event.preventDefault();
 
-    const itemName = document.getElementById('itemName').value;
+    const itemName = document.getElementById('itemName').value.trim();
     const itemId = document.getElementById('itemId').value;
 
     if (itemId) {
@@ -71,7 +70,7 @@ async function createItem(name) {
             body: JSON.stringify({ name })
         });
 
-        if (!response.ok) throw new Error('Error creating item');
+        if (!response.ok) throw new Error(`Error creating item: ${response.statusText}`);
         const newItem = await response.json();
         items.push(newItem);
         renderItems();
@@ -91,10 +90,9 @@ async function updateItem(id, name) {
             body: JSON.stringify({ name })
         });
 
-        if (!response.ok) throw new Error('Error updating item');
+        if (!response.ok) throw new Error(`Error updating item: ${response.statusText}`);
         const updatedItem = await response.json();
 
-        // Actualizar el item en la lista local
         const index = items.findIndex(item => item.id === id);
         items[index] = updatedItem;
         renderItems();
@@ -112,7 +110,7 @@ async function deleteItem(id, index) {
             method: 'DELETE'
         });
 
-        if (!response.ok) throw new Error('Error deleting item');
+        if (!response.ok) throw new Error(`Error deleting item: ${response.statusText}`);
 
         items.splice(index, 1);
         renderItems();
