@@ -12,12 +12,12 @@
 <body>
     <h1>CRUD Application</h1>
 
-    <div id="statusMessage" class="status-message"></div>
+    <div id="statusMessage" class="status-message" aria-live="polite"></div>
 
     <form id="crudForm">
         <input type="text" id="itemName" placeholder="Enter item name" required>
         <input type="hidden" id="itemId">
-        <button type="submit"><i class="fas fa-save"></i> Save</button>
+        <button type="submit" class="btn"><i class="fas fa-save"></i> Save</button>
     </form>
 
     <table>
