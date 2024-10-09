@@ -1,6 +1,8 @@
 let items = [];
 let statusMessage = document.getElementById('statusMessage');
 
+const apiUrl = 'https://backend-crud-5d2c.onrender.com/api/items';
+
 window.onload = () => {
     fetchItems();
 };
@@ -8,7 +10,7 @@ window.onload = () => {
 async function fetchItems() {
     statusMessage.textContent = "Loading items...";
     try {
-        const response = await fetch('http://localhost:50010/api/items');
+        const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error(response.status === 404 ? "Items not found." : "Network response was not ok");
         }
@@ -70,7 +72,7 @@ document.getElementById('crudForm').onsubmit = async function (event) {
     try {
         if (itemId) {
             statusMessage.textContent = "Updating the item...";
-            const response = await fetch(`http://localhost:50010/api/items/${itemId}`, {
+            const response = await fetch(`${apiUrl}/${itemId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: itemName })
@@ -83,7 +85,7 @@ document.getElementById('crudForm').onsubmit = async function (event) {
             statusMessage.textContent = "Item updated successfully!";
         } else {
             statusMessage.textContent = "Creating a new item...";
-            const response = await fetch('http://localhost:50010/api/items', {
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: itemName })
@@ -104,7 +106,7 @@ document.getElementById('crudForm').onsubmit = async function (event) {
 function deleteItem(index) {
     if (confirm(`Are you sure you want to delete "${items[index].name}"?`)) {
         statusMessage.textContent = "Deleting the item...";
-        fetch(`http://localhost:50010/api/items/${items[index].id}`, { method: 'DELETE' })
+        fetch(`${apiUrl}/${items[index].id}`, { method: 'DELETE' })
             .then(response => {
                 if (!response.ok) throw new Error("Failed to delete item");
                 items.splice(index, 1);
